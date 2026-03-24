@@ -636,3 +636,185 @@ button:hover {
     font-size: 30px;
   }
 }
+
+/* ================= RESPONSIVE MODERNE PRO ================= */
+
+/* Typographie fluide */
+.hero h1 {
+  font-size: clamp(32px, 5vw, 55px);
+}
+
+.hero p {
+  font-size: clamp(16px, 2vw, 20px);
+}
+
+/* Sections adaptatives */
+section {
+  padding: clamp(60px, 8vw, 100px) 5%;
+}
+
+/* Logo responsive */
+.logo {
+  width: clamp(70px, 10vw, 100px);
+}
+
+/* Navbar spacing adaptatif */
+.navbar {
+  padding: 15px clamp(20px, 5vw, 40px);
+}
+
+/* Menu flexible */
+.navbar ul {
+  gap: clamp(10px, 2vw, 25px);
+}
+
+/* About image responsive */
+.about-content img {
+  width: clamp(150px, 25vw, 250px);
+  height: clamp(150px, 25vw, 250px);
+}
+
+/* Form moderne */
+form {
+  width: clamp(280px, 40%, 380px);
+}
+
+/* Grid projets plus fluide */
+.projects .grid {
+  gap: clamp(20px, 3vw, 30px);
+}
+
+/* Cards plus premium */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+/* Overlay plus moderne */
+.card .overlay {
+  backdrop-filter: blur(6px);
+}
+
+/* Footer spacing pro */
+.footer {
+  padding: clamp(20px, 4vw, 40px);
+}
+
+/* ================= MOBILE ULTRA PRO ================= */
+@media (max-width: 768px) {
+
+  .navbar {
+    flex-direction: column;
+    padding: 15px 5%;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    gap: 15px;
+    padding-top: 10px;
+  }
+
+  .hero {
+    height: auto;
+    padding: 80px 20px;
+  }
+
+  .about-content {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .projects .grid {
+    grid-template-columns: 1fr;
+  }
+
+  form {
+    width: 90%;
+  }
+}
+
+/* ================= PETIT MOBILE ================= */
+@media (max-width: 480px) {
+
+  .hero h1 {
+    font-size: 26px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .navbar {
+    padding: 10px;
+  }
+
+  .logo {
+    width: 60px;
+  }
+}
+
+/* ================= UX PRO ================= */
+
+/* Hover global plus smooth */
+a, button {
+  transition: all 0.3s ease;
+}
+
+/* Scroll fluide + moderne */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar stylée */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#38bdf8, #0ea5e9);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+ /* MENU MOBILE */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* UL NAV */
+.nav-links {
+  display: flex;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: #0f172a;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    transform: translateY(-200%);
+    transition: 0.4s ease;
+  }
+
+  .nav-links.active {
+    transform: translateY(0);
+  }
+}
