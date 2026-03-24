@@ -1,4 +1,5 @@
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 function Contact() {
   const [nom, setNom] = useState("");
@@ -7,7 +8,7 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault(); // empêche le rechargement de la page
-    alert(`Merci ${nom}, votre message a été envoyé !`);
+    toast.success(`Merci ${nom}, votre message a été envoyé !`);
     // Ici tu peux réinitialiser le formulaire
     setNom("");
     setEmail("");
