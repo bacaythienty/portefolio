@@ -1,43 +1,43 @@
-import { useState } from "react";
-import logo from "../assets/images/logo.png";
-import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
 
-function Navbar() {
+export default function Navbar() {
   const [open, setOpen] = useState(false);
+
+  const handleToggle = () => setOpen(!open);
+
+  const handleLinkClick = (id) => {
+    setOpen(false); // ferme le menu mobile
+    if(id === "home") {
+      window.scrollTo({ top: 0, behavior: "smooth" }); // revient en haut
+    } else {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
 
   return (
     <>
-      {/* BOUTON HAMBURGER */}
-      <div
-        className={`menu-btn ${open ? "open" : ""}`}
-        onClick={() => setOpen(!open)}
-      >
+      {/* Hamburger */}
+      <div className={`menu-btn ${open ? "open" : ""}`} onClick={handleToggle}>
         <span></span>
         <span></span>
         <span></span>
       </div>
 
-      {/* OVERLAY */}
-      <div
-        className={`overlay ${open ? "active" : ""}`}
-        onClick={() => setOpen(false)}
-      ></div>
+      {/* Overlay */}
+      <div className={`menu-overlay ${open ? "active" : ""}`} onClick={handleToggle}></div>
 
-      {/* NAVBAR */}
+      {/* Navbar */}
       <nav className={`navbar ${open ? "active" : ""}`}>
-        <h2>
-          <img src={logo} alt="logo" className="logo" />
-        </h2>
-
         <ul>
-          <li><NavLink to="/" onClick={() => setOpen(false)}>Accueil</NavLink></li>
-          <li><NavLink to="/about" onClick={() => setOpen(false)}>À propos</NavLink></li>
-          <li><NavLink to="/projects" onClick={() => setOpen(false)}>Projets</NavLink></li>
-          <li><NavLink to="/contact" onClick={() => setOpen(false)}>Contact</NavLink></li>
+          <li><a onClick={() => handleLinkClick("home")}>Accueil</a></li>
+          <li><a onClick={() => handleLinkClick("about")}>À propos</a></li>
+          <li><a onClick={() => handleLinkClick("projects")}>Projets</a></li>
+          <li><a onClick={() => handleLinkClick("contact")}>Contact</a></li>
         </ul>
       </nav>
     </>
   );
 }
-
-export default Navbar;
