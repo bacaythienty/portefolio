@@ -5,31 +5,34 @@ import proj2 from "../assets/images/proj2.png";
 import proj3 from "../assets/images/proj3.png";
 import proj4 from "../assets/images/proj4.png";
 
+
 function Projects() {
   const [modalImage, setModalImage] = useState(null);
 
   const projets = [
-    { id: 1, title: "Proj", image: proj },
-    { id: 2, title: "Proj1", image: proj1 },
-    { id: 3, title: "Proj2", image: proj2 },
-    { id: 4, title: "Proj3", image: proj3 },
-    { id: 5, title: "Proj4", image: proj4 },
+    { id: 1, title: "Figma aplication mobile", image: proj },
+    { id: 2, title: "Application Mobile", image: proj1 },
+    { id: 3, title: "Dashboard Admin", image: proj2 },
+    { id: 4, title: "Design photo", image: proj3 },
+    { id: 5, title: "Nabassa services CV", image: proj4 },
   ];
 
   return (
     <section id="projects" className="projects">
-      <h2>Portfolio</h2>
+      <h2>Mes Projets</h2>
 
       <div className="grid">
-        {projets.map((proj) => (
+        {projets.map((p) => (
           <div
-            key={proj.id}
+            key={p.id}
             className="card"
-            onClick={() => setModalImage(proj.image)}
+            onClick={() => setModalImage(p.image)}
           >
-            <img src={proj.image} alt={proj.title} />
+            <img src={p.image} alt={p.title} />
+
             <div className="overlay">
-              <h3>{proj.title}</h3>
+              <h3>{p.title}</h3>
+              <button>Voir</button>
             </div>
           </div>
         ))}

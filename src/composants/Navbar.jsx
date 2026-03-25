@@ -1,24 +1,17 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import logo from "../assets/images/logo.png"; // <-- ton image de logo
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   const handleToggle = () => setOpen(!open);
 
-  const handleLinkClick = (id) => {
-    setOpen(false); // ferme le menu mobile
-    if(id === "home") {
-      window.scrollTo({ top: 0, behavior: "smooth" }); // revient en haut
-    } else {
-      const section = document.getElementById(id);
-      if (section) {
-        section.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-  };
-
   return (
     <>
+      {/* Logo */}
+      
+
       {/* Hamburger */}
       <div className={`menu-btn ${open ? "open" : ""}`} onClick={handleToggle}>
         <span></span>
@@ -31,13 +24,20 @@ export default function Navbar() {
 
       {/* Navbar */}
       <nav className={`navbar ${open ? "active" : ""}`}>
-        <ul>
-          <li><a onClick={() => handleLinkClick("home")}>Accueil</a></li>
-          <li><a onClick={() => handleLinkClick("about")}>À propos</a></li>
-          <li><a onClick={() => handleLinkClick("projects")}>Projets</a></li>
-          <li><a onClick={() => handleLinkClick("contact")}>Contact</a></li>
+        
+        <div className="logo">
+        <NavLink to="/">
+          <img src={logo} alt="Bacary Thienty Logo" style={{ width: "50px", borderRadius: "50%" }} />
+        </NavLink>
+      </div>
+      <ul>
+          <li><NavLink to="/">Accueil</NavLink></li>
+          <li><NavLink to="/about">À propos</NavLink></li>
+          <li><NavLink to="/projects">Projets</NavLink></li>
+          <li><NavLink to="/contact">Contact</NavLink></li>
         </ul>
       </nav>
+      
     </>
   );
 }

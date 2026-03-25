@@ -1,5 +1,7 @@
 import { useState } from "react";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
+import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+
 
 function Contact() {
   const [nom, setNom] = useState("");
@@ -7,9 +9,9 @@ function Contact() {
   const [message, setMessage] = useState("");
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // empêche le rechargement de la page
+    e.preventDefault();
     toast.success(`Merci ${nom}, votre message a été envoyé !`);
-    // Ici tu peux réinitialiser le formulaire
+
     setNom("");
     setEmail("");
     setMessage("");
@@ -17,32 +19,61 @@ function Contact() {
 
   return (
     <section id="contact" className="contact">
-      <h2>Contact</h2>
+      <Toaster position="top-right" />
 
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Nom"
-          value={nom}
-          onChange={(e) => setNom(e.target.value)}
-          required
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <textarea
-          placeholder="Message"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          required
-        ></textarea>
+      <h2>Contactez-moi</h2>
 
-        <button type="submit">Envoyer</button>
-      </form>
+      <div className="contact-container">
+
+        {/* INFOS */}
+        <div className="contact-info">
+          <h3>Discutons de votre projet 👋</h3>
+          <p>
+            Vous avez un projet web ou mobile ? Je suis disponible pour collaborer
+            avec vous et créer des solutions modernes et performantes.
+          </p>
+
+          <div className="info-item">
+            <FaPhone /> <span>+221 77 935 46 78</span>
+          </div>
+
+          <div className="info-item">
+            <FaEnvelope /> <span>bacarythienty803@gmail.com</span>
+          </div>
+
+          <div className="info-item">
+            <FaMapMarkerAlt /> <span>Thiès, Sénégal</span>
+          </div>
+        </div>
+
+        {/* FORMULAIRE */}
+        <form onSubmit={handleSubmit} className="contact-form">
+          <input
+            type="text"
+            placeholder="Votre nom"
+            value={nom}
+            onChange={(e) => setNom(e.target.value)}
+            required
+          />
+
+          <input
+            type="email"
+            placeholder="Votre email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+
+          <textarea
+            placeholder="Votre message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            required
+          ></textarea>
+
+          <button type="submit">Envoyer le message</button>
+        </form>
+      </div>
     </section>
   );
 }

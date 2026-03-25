@@ -6,6 +6,8 @@ import { Toaster } from 'react-hot-toast';
 
 
 
+
+
 function Layout(){
 
 return(
@@ -15,6 +17,7 @@ return(
     <Outlet></Outlet>
     <Toaster></Toaster>
     <Footer/>
+    
    </main>
  </div>
 )
