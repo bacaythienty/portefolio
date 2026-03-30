@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../assets/images/logo.png"; // <-- ton image de logo
 
-export default function Navbar() {
+ function Navbar() {
   const [open, setOpen] = useState(false);
 
   const handleToggle = () => setOpen(!open);
@@ -41,3 +41,4 @@ export default function Navbar() {
     </>
   );
 }
+export default Navbar
